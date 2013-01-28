@@ -7,24 +7,30 @@ package rls;
  * @author takashi
  *
  */
-public class RegularizedLeastSquareRA implements RegressionAnalysis {
+public class RegularizedLeastSquareRA{
 
-	/* (非 Javadoc)
-	 * @see rls.RegressionAnalysis#coefficientset(double[], double[])
+	/**
+	 * 
+	 * @param independent
+	 * @param dependent
+	 * @return
 	 */
-	@Override
-	public double[] coefficientset(double[] independent, double[] dependent) {
-		// TODO 自動生成されたメソッド・スタブ
+	public static double[] coefficientset(double[] independent, double[] dependent) {
+		
+		
 		return null;
 	}
 
-	/* (非 Javadoc)
-	 * @see rls.RegressionAnalysis#regressedmodel(double[])
+	/**
+	 * 
+	 * @param coefficient
+	 * @return
 	 */
-	@Override
-	public double[] regressedmodel(double[] coefficient) {
-		// TODO 自動生成されたメソッド・スタブ
+	public static double[] regressedmodel(double[] coefficient) {
+		
 		return null;
 	}
+	
+	
 
 }

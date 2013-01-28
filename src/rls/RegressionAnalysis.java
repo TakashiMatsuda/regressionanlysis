@@ -18,13 +18,13 @@ public interface RegressionAnalysis {
 	 * @param dependent
 	 * @return
 	 */
-	public double[] coefficientset(double[] independent, double[] dependent);
+	abstract double[] coefficientset(double[] independent, double[] dependent);
 	
 	/**
 	 * 
 	 * @param coefficient
 	 * @return
 	 */
-	public double[] regressedmodel(double[] coefficient);
+	abstract double[] regressedmodel(double[] coefficient);
 
 }
