@@ -3,12 +3,15 @@
  */
 package math;
 
+import java.util.List;
+
 /**
  * @author takashi
  *
  */
 public class CholeskyDecomposition {
-	public static double[][] calc(double[][] matrix){
+	public static List<double[][]> calc(double[][] matrix){
+		
 		
 		return null;
 	}
