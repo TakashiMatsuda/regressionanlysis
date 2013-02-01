@@ -8,7 +8,6 @@ package rls;
  *
  */
 public class RegularizedLeastSquareRA{
-
 	/**
 	 * 
 	 * implements Regularized Least Square regression.
@@ -31,26 +30,24 @@ public class RegularizedLeastSquareRA{
 		 */
 		
 //		FIXME LAPACKを使った形に切り替えて下さい。
-		double[][] dtd = new double[M][M];
-		for(int i = 0; i < M; i++){
-			for(int j = 0; j < N; j++){
-				
-				/*
-				 * 各項の計算
-				 */
-				for(int k = 0; k < N; k++){
-					dtd[i][j] += independent[k][i] * independent[k][j];
-				}
-				
-			}
-			dtd[i][i] += regparameter;
-		}
-		
+//		double[][] dtd = new double[M][M];
+//		for(int i = 0; i < M; i++){
+//			for(int j = 0; j < N; j++){
+//				
+//				/*
+//				 * 各項の計算
+//				 */
+//				for(int k = 0; k < N; k++){
+//					dtd[i][j] += independent[k][i] * independent[k][j];
+//				}
+//				
+//			}
+//			dtd[i][i] += regparameter;
+//		}
 		
 		/*
 		 * 逆行列の計算
 		 */
-		
 		
 		return w;
 	}
@@ -64,7 +61,5 @@ public class RegularizedLeastSquareRA{
 		
 		return null;
 	}
-	
-	
 
 }
