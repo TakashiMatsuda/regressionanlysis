@@ -8,10 +8,10 @@ import java.util.Collection;
 
 /**
  * @author takashi
- *
+ *	
  */
 public class ExprList extends ArrayList<Expr> {
-
+	
 	/**
 	 * 
 	 */
@@ -21,7 +21,6 @@ public class ExprList extends ArrayList<Expr> {
 	 * 
 	 */
 	public ExprList() {
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	/**
@@ -29,7 +28,6 @@ public class ExprList extends ArrayList<Expr> {
 	 */
 	public ExprList(int initialCapacity) {
 		super(initialCapacity);
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	/**
@@ -37,9 +35,6 @@ public class ExprList extends ArrayList<Expr> {
 	 */
 	public ExprList(Collection<Expr> c) {
 		super(c);
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	
-	
-
 }
