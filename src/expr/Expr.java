@@ -13,8 +13,11 @@ import java.util.List;
 public class Expr {
 	private int expr_id;
 	private int tss_id;
+	/*
+	 * これだけあればいい
+	 */
 	private double exprs;
-	private List<double[]> histnf;
+//	private List<double[]> histnf;
 	
 	
 	/**
@@ -28,7 +31,16 @@ public class Expr {
 		this.expr_id = expr_id;
 		this.tss_id = tss_id;
 		this.exprs = exprs;
-		this.histnf = new ArrayList<double[]>(histnf);
+//		this.histnf = new ArrayList<double[]>(histnf);
+	}
+	
+	
+	/**
+	 * 
+	 * @param exprs
+	 */
+	public Expr(double exprs){
+		this.exprs = exprs;
 	}
 	
 	/**
@@ -60,8 +72,8 @@ public class Expr {
 	 * @param n
 	 * @return
 	 */
-	public double[] get_histnf(int n){
-		return histnf.get(n);
-	}
+//	public double[] get_histnf(int n){
+//		return histnf.get(n);
+//	}
 	
 }

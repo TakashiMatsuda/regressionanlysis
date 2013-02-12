@@ -7,13 +7,15 @@ import Jama.Matrix;
 import Jama.CholeskyDecomposition;
 
 /**
+ * 
+ * 最小二乗法による線形回帰の実装
  * @author takashi
  * 
  */
 public class RegularizedLeastSquareRA {
 
 	/**
-	 * 単回帰分析に実装。これができたら重解析分析のコードも書く。
+	 * 単回帰分析の実装。これができたら重解析分析のコードも書く。
 	 * 
 	 * @param independent
 	 * @param dependent
@@ -73,9 +75,25 @@ public class RegularizedLeastSquareRA {
 		return w.getArray();// 重回帰分析・非正規化線形回帰の結果
 	}
 	
-//	FIXME 正規化線形回帰も実装してください。
-	
-	
+	/**
+	 * 
+	 * @param independent
+	 * @param dependent
+	 * @param reg
+	 * @return
+	 */
+	public static double[][] rcoefficient(double[][] independent, double[][] dependent, double reg){
+		int M = independent[0].length;
+		int N = independent.length;
+		Matrix w = new Matrix(N, M);
+		Matrix x = new Matrix(independent);
+		Matrix y = new Matrix(dependent);
+		
+		w = x.transpose().times(x).plus(Matrix.identity(M, M).times(reg));
+		w = w.inverse().times(x).times(y);
+		
+		return w.getArray();
+	}
 
 	/**
 	 * 

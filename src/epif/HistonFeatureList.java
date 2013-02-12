@@ -12,7 +12,8 @@ import java.util.LinkedList;
  *	ArrayListで実装しています。必要に応じてLinkedListに変えて下さい。
  */
 public class HistonFeatureList extends ArrayList<HistonFeature> {
-
+//	double[] decoptn;
+	private ArrayList<Double> decoptn;
 	/**
 	 * 
 	 */

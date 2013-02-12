@@ -19,8 +19,14 @@ public class ExprList extends ArrayList<Expr> {
 
 	/**
 	 * 
+	 * @param exprary
 	 */
-	public ExprList() {
+	public ExprList(ArrayList<Double> exprary) {
+		super(exprary.size());// superの仕様を読みたい。できればもっとうまく一発superで済ましてしまいたい
+		for(int i = 0; i < exprary.size(); i++){
+			Expr addi = new Expr(exprary.get(i));
+			this.add(addi);
+		}
 	}
 
 	/**
