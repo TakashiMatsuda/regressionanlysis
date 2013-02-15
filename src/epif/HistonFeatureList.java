@@ -39,6 +39,8 @@ public class HistonFeatureList extends ArrayList<HistonFeature> {
 		super(c);
 	}
 	
+	
+	
 	/**
 	 * まだ実装していません。
 	 * @return
@@ -46,5 +48,14 @@ public class HistonFeatureList extends ArrayList<HistonFeature> {
 	public ArrayList<HistonFeature> sort(){
 		return null;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

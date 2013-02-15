@@ -75,6 +75,7 @@ public class RegularizedLeastSquareRA {
 		return w.getArray();// 重回帰分析・非正規化線形回帰の結果
 	}
 	
+//	FIXME 引数仕様の変更をしたので、ここを修正してください。
 	/**
 	 * 
 	 * @param independent
@@ -82,7 +83,7 @@ public class RegularizedLeastSquareRA {
 	 * @param reg
 	 * @return
 	 */
-	public static double[][] rcoefficient(double[][] independent, double[][] dependent, double reg){
+	public static double[][] rcoefficient(Matrix independent, double[] dependent, double reg){
 		int M = independent[0].length;
 		int N = independent.length;
 		Matrix w = new Matrix(N, M);
