@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class HistonFeatureList extends ArrayList<HistonFeature> {
 //	double[] decoptn;
-	private ArrayList<Double> decoptn;
+	private ArrayList<Double> decoptn;// ちょっとよくわからない
 	/**
 	 * 
 	 */
@@ -46,6 +46,16 @@ public class HistonFeatureList extends ArrayList<HistonFeature> {
 	 * @return
 	 */
 	public ArrayList<HistonFeature> sort(){
+		return null;
+	}
+	
+	
+	/**
+	 * これはHistonListの上位3つをピックアップする関数。メインです。これの中にはヒストンコードファイルからの読み込みが含まれます。Mainから呼び出される唯一の手続きです。
+	 * @return
+	 */
+	public static HistonFeatureList rankTopHiston(){
+		
 		return null;
 	}
 	
