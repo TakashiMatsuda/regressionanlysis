@@ -5,6 +5,9 @@ package epif;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+
+import expr.ExprList;
 import Jama.Matrix;
 import rls.RegularizedLeastSquareRA;
 
@@ -76,14 +79,23 @@ public class HistonFeature {
 	 *	これを作ってください。
 	 * @return
 	 */
-	public double crossval(){
+	public double crossval(ExprList exprlist){
 //		rlsを繰り返してcrossvalidateする。
 //		CV回分割
-		for(int i = 0; i < CV; i++){
-			RegularizedLeastSquareRA.rcoefficient(independent, dependent, reg);// 引数を
+		
+//		exprlistからdouble[]への型の変更が必要。
+//		ExprList -> double[]
+		double[] elarray = new double[exprlist.size()];
+		for(int i = 0; i < exprlist.size(); i++){
+			elarray[i] = exprlist.get(i).get_exprs();
 		}
+		
+		double r = Math.pow(Math.E, 2.6);// 正規化数
+		ArrayList<double[][]> coflist = new ArrayList<double[][]>(CV);
+		for(int i = 0; i < CV; i++){
+			coflist.add(RegularizedLeastSquareRA.rcoefficient(code, elarray, r));
+		}	
+		
 	}
-	
-	
 	
 }

@@ -4,10 +4,13 @@
 package epif;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+
+import expr.ExprList;
 
 import Jama.Matrix;
 
@@ -55,25 +58,26 @@ public class HistonFeatureList extends ArrayList<HistonFeature> {
 	
 	
 	/**
-	 * これはHistonListの上位3つをピックアップする関数。メインです。これの中にはヒストンコードファイルからの読み込みが含まれます。Mainから呼び出される唯一の手続きです。
+	 * これはHistonListの上位3つをピックアップする関数。メインです。これの中にはヒストンコードファイルからの読み込みが含まれます。
+	 * Mainから呼び出される唯一の手続きです。
+	 * 
 	 * @return
 	 */
-	public static HistonFeatureList rankTopHiston(){
-//		ヒストンコードの名前は具体的に依存する。
-//		各ファイル名を記入してください。
-		
-//		フォルダ内のすべてのファイルを網羅する機能がないか調べてください。
-		
-		
-//		ループのなかで次のことを行う。{
-		
-		Matrix histon = readHistonCode("");
-//		ヒストンコードと遺伝子発現量の相関の評価。クロスバリデーション。rls.
-		histon.crossval();
-		
-		
-		
-		
+	public static HistonFeatureList rankTopHiston(ExprList exprlist) {
+		// ヒストンコードの名前は具体的に依存する。
+		// 各ファイル名を記入してください。
+
+		// フォルダ内のすべてのファイルを網羅してHistonlistの候補を作成する。
+		File dir = new File("histon_features");
+		String[] filelist = dir.list();
+		for (int i = 0; i < filelist.length; i++) {
+			// Histonコードをクロスバリデーションして、上位を抽出する。
+			HistonFeature histon = HistonFeature.make(filelist[i]);
+			histon.crossval(exprlist);// doubleをどこに受け取るか考えよう。
+		}
+//		TODO 頂いたRを、それが由来するhistoncodeとの対応を保存した形で保存しておくようにして下さい。
+//		histonlistを利用してもいいと思います。
+
 		return null;
 	}
 	
