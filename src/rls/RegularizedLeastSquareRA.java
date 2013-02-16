@@ -101,9 +101,9 @@ public class RegularizedLeastSquareRA {
 	 * @param coefficient
 	 * @return
 	 */
-	public static double[] regressedmodel(double[] coefficient) {
-
-		return null;
-	}
+//	public static double[] regressedmodel(double[] coefficient) {
+//
+//		return null;
+//	}
 
 }

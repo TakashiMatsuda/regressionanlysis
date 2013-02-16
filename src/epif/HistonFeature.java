@@ -5,14 +5,15 @@ package epif;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-
 import Jama.Matrix;
+import rls.RegularizedLeastSquareRA;
 
 /**
  * @author takashi
  *	ヒストン修飾のモデルです。
  */
 public class HistonFeature {
+	private static int CV = 5;
 //	最初から全部読み込む必要がないのかもしれない。
 	private Matrix code;
 	
@@ -69,9 +70,20 @@ public class HistonFeature {
 		
 //		ここから、RLSを行う
 		
-		
-		
 	}
+	
+	/**
+	 *	これを作ってください。
+	 * @return
+	 */
+	public double crossval(){
+//		rlsを繰り返してcrossvalidateする。
+//		CV回分割
+		for(int i = 0; i < CV; i++){
+			RegularizedLeastSquareRA.rcoefficient(independent, dependent, reg);// 引数を
+		}
+	}
+	
 	
 	
 }
