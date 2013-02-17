@@ -93,7 +93,7 @@ public class RegularizedLeastSquareRA {
 		w = x.transpose().times(x).plus(Matrix.identity(M, M).times(reg));
 		w = w.inverse().times(x).times(y);
 		
-		return w.getArray();
+		return w;
 	}
 
 	/**

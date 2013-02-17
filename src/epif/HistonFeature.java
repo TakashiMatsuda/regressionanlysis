@@ -20,7 +20,10 @@ public class HistonFeature implements Comparable<HistonFeature>{
 //	最初から全部読み込む必要がないのかもしれない。
 	private Matrix code;
 	
-	private int R;
+	/*
+	 * result of crossvalidation 
+	 */
+	private double R;
 	
 	/**
 	 * 
@@ -58,11 +61,8 @@ public class HistonFeature implements Comparable<HistonFeature>{
 		}
 		
 		Matrix mat = new Matrix(prres);
-	
-//		これより下、staticファクトリーメソッドの作り方がわからない。
-//		この中でコンストラクタを呼び出してしまっていいのだろうか。
-		HistonFeature res = new HistonFeature(mat); 
 		
+		HistonFeature res = new HistonFeature(mat); 
 		return res;
 	}
 	
@@ -77,7 +77,7 @@ public class HistonFeature implements Comparable<HistonFeature>{
 	}
 	
 	/**
-	 *	これを作ってください。
+	 *	rlsクロスバリデーション
 	 * @return
 	 */
 	public double crossval(ExprList exprlist){
@@ -97,7 +97,7 @@ public class HistonFeature implements Comparable<HistonFeature>{
 		 */
 //		FIXME まだcrosvalidateできていません。code, elarrayをcrossvalidationのために分割するコードを追加してください。
 		double r = Math.pow(Math.E, 2.6);// 正規化数
-		ArrayList<double[][]> coflist = new ArrayList<double[][]>(CV);
+		ArrayList<Matrix> coflist = new ArrayList<Matrix>(CV);// ここMatrixにしなきゃダメですね、修正して下さい。内積の計算が使いづらいので、修正する必要があります。
 		ArrayList<double[]> crossEL = new ArrayList<>(CV);
 		ArrayList<Matrix> crossCD = new ArrayList<>(CV);
 		double sume = 0;
@@ -106,12 +106,19 @@ public class HistonFeature implements Comparable<HistonFeature>{
 			coflist.add(RegularizedLeastSquareRA.rcoefficient(crossCD.get(i), crossEL.get(i), r));
 			for(int j = 0; j < crossEL.get(i).length; j++){
 //				Calculation for e
-				sume += 0;// ここに計算式をコードして下さい。
+				sume += Math.pow(crossEL.get(i)[j] - coflist.get(i).inverse().times(null), 2.0);// ここに計算式をコードして下さい。まだ内積計算の部分が不完全です。
+//				FIXME 内積計算の記述だけ
+				
 			}
+			
 		}
 		
-//		e[]すらいらなかった。
-		return (sume / )// ここに最終計算式をコードして下さい。
+		double sumy = 0;
+		for(int i = 0; i < elarray.length; i++){
+			sumy += Math.pow(elarray[i] - exprlist.get_ave(), 2.0);
+		}
+		
+		return (1 - (sume / sumy));// ここに最終計算式をコードして下さい。
 		
 	}
 
@@ -122,6 +129,22 @@ public class HistonFeature implements Comparable<HistonFeature>{
 		}
 		else
 			return 0;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public double getR(){
+		return R;
+	}
+	
+	/**
+	 * 
+	 * @param r
+	 */
+	public void setR(double r){
+		this.R = r;
 	}
 	
 }

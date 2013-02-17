@@ -16,6 +16,8 @@ public class ExprList extends ArrayList<Expr> {
 	 * 
 	 */
 	private static final long serialVersionUID = -4317329866121071730L;
+	
+	private double ave;
 
 	/**
 	 * 
@@ -23,10 +25,15 @@ public class ExprList extends ArrayList<Expr> {
 	 */
 	public ExprList(ArrayList<Double> exprary) {
 		super(exprary.size());// superの仕様を読みたい。できればもっとうまく一発superで済ましてしまいたい
+		
+		double prev = 0;
 		for(int i = 0; i < exprary.size(); i++){
 			Expr addi = new Expr(exprary.get(i));
+			prev += exprary.get(i);
 			this.add(addi);
 		}
+		
+		this.ave = prev / (double)exprary.size();
 	}
 
 	/**
@@ -41,6 +48,14 @@ public class ExprList extends ArrayList<Expr> {
 	 */
 	public ExprList(Collection<Expr> c) {
 		super(c);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public double get_ave(){
+		return ave;
 	}
 	
 }

@@ -47,10 +47,9 @@ public class Main {
 //		HistonListに入れるのが良いと思います。
 //		つまり下のコード。
 		
-		HistonFeatureList histontopslist = HistonFeatureList.rankTopHiston();
 		
-		
-		
+//		exprlistとhistonlistのバインディングクラスが必要となってくる。
+		HistonFeatureList histontopslist = HistonFeatureList.rankTopHiston(exprlist);
 		
 		
 //		exprとhistonを結びつけるクラスを書いて、そこでこれら回帰などの操作を行うことに決めました。
@@ -122,8 +121,5 @@ public class Main {
 		Matrix res = new Matrix(prres);
 		return res;
 	}
-	
-	
-	
 	
 }
