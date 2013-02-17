@@ -77,6 +77,8 @@ public class HistonFeatureList extends ArrayList<HistonFeature> {
 		}
 //		TODO 頂いたRを、それが由来するhistoncodeとの対応を保存した形で保存しておくようにして下さい。
 //		histonlistを利用してもいいと思います。
+//		doubleとHiston_idをバインドするクラスが必要です。（ソート可能だとさらによい）
+//		HistonFeatureをRでserializableにすればいいんじゃないか。
 
 		return null;
 	}

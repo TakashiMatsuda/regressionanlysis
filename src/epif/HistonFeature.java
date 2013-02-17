@@ -15,11 +15,12 @@ import rls.RegularizedLeastSquareRA;
  * @author takashi
  *	ヒストン修飾のモデルです。
  */
-public class HistonFeature {
+public class HistonFeature implements Comparable<HistonFeature>{
 	private static int CV = 5;
 //	最初から全部読み込む必要がないのかもしれない。
 	private Matrix code;
 	
+	private int R;
 	
 	/**
 	 * 
@@ -83,19 +84,44 @@ public class HistonFeature {
 //		rlsを繰り返してcrossvalidateする。
 //		CV回分割
 		
-//		exprlistからdouble[]への型の変更が必要。
-//		ExprList -> double[]
+		/*
+		 * ExprListからdouble[]を生成。これは入力から考えると二度手間です。
+		 */
 		double[] elarray = new double[exprlist.size()];
 		for(int i = 0; i < exprlist.size(); i++){
 			elarray[i] = exprlist.get(i).get_exprs();
 		}
 		
+		/*
+		 * 各validateを行います。
+		 */
+//		FIXME まだcrosvalidateできていません。code, elarrayをcrossvalidationのために分割するコードを追加してください。
 		double r = Math.pow(Math.E, 2.6);// 正規化数
 		ArrayList<double[][]> coflist = new ArrayList<double[][]>(CV);
+		ArrayList<double[]> crossEL = new ArrayList<>(CV);
+		ArrayList<Matrix> crossCD = new ArrayList<>(CV);
+		double sume = 0;
 		for(int i = 0; i < CV; i++){
-			coflist.add(RegularizedLeastSquareRA.rcoefficient(code, elarray, r));
-		}	
+//			RLS
+			coflist.add(RegularizedLeastSquareRA.rcoefficient(crossCD.get(i), crossEL.get(i), r));
+			for(int j = 0; j < crossEL.get(i).length; j++){
+//				Calculation for e
+				sume += 0;// ここに計算式をコードして下さい。
+			}
+		}
 		
+//		e[]すらいらなかった。
+		return (sume / )// ここに最終計算式をコードして下さい。
+		
+	}
+
+	@Override
+	public int compareTo(HistonFeature o) {
+		if (this.R > o.R){
+			return 1;
+		}
+		else
+			return 0;
 	}
 	
 }
