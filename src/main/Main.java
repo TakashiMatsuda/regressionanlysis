@@ -35,6 +35,8 @@ public class Main {
 //		全体の設計を考えよう
 		// readする　rna_seq_k562をする
 		ExprList exprlist = new ExprList(readRnaExprs("rna_seq_k562.txt"));
+//		(static constructerを作ったので、そっちを利用して下さい)
+		
 		
 //		HistonFeatureList histonlist = new HistonFeatureList(readHistonCode(""));
 		// 主目標：histoncodeを独立変数、発現量を従属変数として回帰分析する。
@@ -57,6 +59,7 @@ public class Main {
 //		相関係数をどう求めるか。
 //		5分割して回帰を5回行い、残差を合計して相関係数を決める。
 		
+//		TODO プリントを見て理解を深める。
 		
 		
 		

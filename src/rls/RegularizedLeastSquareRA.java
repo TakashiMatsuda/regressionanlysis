@@ -84,6 +84,7 @@ public class RegularizedLeastSquareRA {
 	 * @return
 	 */
 	public static double[][] rcoefficient(Matrix independent, double[] dependent, double reg){
+//		independentがなにか
 		int M = independent[0].length;
 		int N = independent.length;
 		Matrix w = new Matrix(N, M);
